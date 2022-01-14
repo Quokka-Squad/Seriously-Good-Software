@@ -65,11 +65,17 @@ class ContainerTest {
 
 		a.connectTo(e);
 
-		Assertions.assertEquals("6.0 6.0 6.0 6.0 6.0 6.0", a.getAmount() + " " + b.getAmount() + " " + c.getAmount() + " " + d.getAmount() + " " + e.getAmount() + " " + f.getAmount());
+		assertEquals("6.0 6.0 6.0 6.0 6.0 6.0", a.getAmount() + " " + b.getAmount() + " " + c.getAmount() + " " + d.getAmount() + " " + e.getAmount() + " " + f.getAmount());
 
 		c.addWater(6);
 
-		Assertions.assertEquals(7, a.getAmount());
+		assertEquals(7, a.getAmount());
+
+		try {
+			c.addWater(-10);
+		} catch (IllegalArgumentException er) {
+			assertEquals("물의 양이 충분하지 않습니다.", er.getMessage());
+		}
 
 	}
 
