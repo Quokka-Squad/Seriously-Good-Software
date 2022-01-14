@@ -48,6 +48,11 @@ public class Container {
 
 
 	public void addWater(double amount) {
+
+		if (this.amount + amount < 0) {
+			throw new IllegalArgumentException("물의 양이 충분하지 않습니다.");
+		}
+
 		Iterator<Container> iterator = inDirectConnectedSet.iterator();
 
 		double divideAmount = amount / inDirectConnectedSet.size();
