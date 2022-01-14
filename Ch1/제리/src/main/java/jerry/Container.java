@@ -6,7 +6,7 @@ import java.util.Set;
 public class Container {
 
 	private double amount;
-	ContainerBox containerBox = new ContainerBox();
+	private final ContainerBox containerBox = new ContainerBox();
 
 	public Container() {
 		this.amount = 0;
@@ -17,8 +17,8 @@ public class Container {
 
 		other.getContainerBox().addContainerBox(this.containerBox);
 		containerBox.addContainer(other);
-		containerBox.setContainerList(other.getContainerBox().getContainerSet());
-		other.getContainerBox().setContainerList(this.containerBox.getContainerSet());
+		containerBox.setContainerSet(other.getContainerBox().getContainerSet());
+		other.getContainerBox().setContainerSet(this.containerBox.getContainerSet());
 
 		double sharedAmount = getSharedAmount(containerBox);
 

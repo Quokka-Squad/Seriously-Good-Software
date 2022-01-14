@@ -4,21 +4,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ContainerBox {
-	private Set<Container> containerList = new HashSet<>();
+	private Set<Container> containerSet = new HashSet<>();
 
 	public void addContainer(Container container) {
-		containerList.add(container);
+		containerSet.add(container);
 	}
 
 	public void addContainerBox(ContainerBox containerBox) {
-		this.containerList.addAll(containerBox.getContainerSet());
+		this.containerSet.addAll(containerBox.getContainerSet());
 	}
 
 	public Set<Container> getContainerSet() {
-		return containerList;
+		return containerSet;
 	}
 
-	public void setContainerList(Set<Container> containerList) {
-		this.containerList = containerList;
+	public void setContainerSet(Set<Container> containerSet) {
+		this.containerSet = containerSet;
 	}
 }
