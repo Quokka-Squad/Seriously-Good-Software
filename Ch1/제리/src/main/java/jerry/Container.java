@@ -1,54 +1,47 @@
 package jerry;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 public class Container {
 
 	private double amount;
-	private final ContainerBox containerBox = new ContainerBox();
+	private final Set<Container> containerSet;
 
 	public Container() {
 		this.amount = 0;
-		containerBox.addContainer(this);
+		containerSet = new HashSet<>();
+		containerSet.add(this);
 	}
 
 	public void connectTo(Container other) {
+		this.containerSet.addAll(other.containerSet);
 
-		other.getContainerBox().addContainerBox(this.containerBox);
-		containerBox.addContainer(other);
-		containerBox.setContainerSet(other.getContainerBox().getContainerSet());
-		other.getContainerBox().setContainerSet(this.containerBox.getContainerSet());
-
-		double sharedAmount = getSharedAmount(containerBox);
-
-		setSameWaterLevel(sharedAmount);
-
-	}
-
-	private void setSameWaterLevel(double sharedAmount) {
-		for (Container tmp : containerBox.getContainerSet()) {
-			tmp.addWater(sharedAmount - tmp.getAmount());
+		Iterator<Container> iterator = containerSet.iterator();
+		while (iterator.hasNext()) {
+			iterator.next().containerSet.addAll(this.containerSet);
 		}
-	}
 
-	private double getSharedAmount(ContainerBox containerBox) {
-		Set<Container> containerSet = containerBox.getContainerSet();
-		Iterator<Container> containerIterator = containerSet.iterator();
-		int total = 0;
-		double size = containerSet.size();
-		while (containerIterator.hasNext()) {
-			total += containerIterator.next().getAmount();
+		double totalAmount = containerSet.stream().mapToDouble(container -> container.amount).sum();
+
+		double average = totalAmount / containerSet.size();
+		iterator = containerSet.iterator();
+		while (iterator.hasNext()) {
+			iterator.next().amount = average;
 		}
-		return total / size;
+
 	}
 
-	public ContainerBox getContainerBox() {
-		return containerBox;
-	}
 
 	public void addWater(double amount) {
-		this.amount += amount;
+		Iterator<Container> iterator = containerSet.iterator();
+
+		double divideAmount = amount / containerSet.size();
+
+		while (iterator.hasNext()) {
+			iterator.next().amount += divideAmount;
+		}
 	}
 
 	public double getAmount() {

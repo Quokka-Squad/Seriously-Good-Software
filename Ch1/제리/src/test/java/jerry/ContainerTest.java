@@ -36,6 +36,12 @@ class ContainerTest {
 		assertEquals(5.0, c.getAmount());
 		assertEquals(5.0, d.getAmount());
 
+		b.addWater(4);
+		assertEquals(6.0, a.getAmount());
+		assertEquals(6.0, b.getAmount());
+		assertEquals(6.0, c.getAmount());
+		assertEquals(6.0, d.getAmount());
+
 	}
 
 	@Test
