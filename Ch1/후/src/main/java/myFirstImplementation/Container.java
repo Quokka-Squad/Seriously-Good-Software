@@ -29,9 +29,9 @@ public class Container {
      * @param other
      */
     public void connectTo(Container other) {
-        connectedContainer.add(other);
-        other.connectedContainer.add(this);
-        divideWater(connectedContainer);
+        if (connectedContainer.add(other) && other.connectedContainer.add(this)) {
+            divideWater(connectedContainer);
+        }
     }
 
     /**
