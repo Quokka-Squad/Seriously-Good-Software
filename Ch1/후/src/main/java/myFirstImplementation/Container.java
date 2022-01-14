@@ -40,6 +40,9 @@ public class Container {
      * @param amount
      */
     public void addWater(double amount) {
+        if (amount < 0 && this.amount < Math.abs(amount)) {
+            throw new IllegalArgumentException("수조에 물이 충분히 들어있지 않습니다.");
+        }
         connectedContainer.forEach(c -> c.amount += (amount / connectedContainer.size()));
     }
 
