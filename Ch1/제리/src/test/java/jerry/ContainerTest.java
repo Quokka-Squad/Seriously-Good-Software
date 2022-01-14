@@ -67,6 +67,10 @@ class ContainerTest {
 
 		Assertions.assertEquals("6.0 6.0 6.0 6.0 6.0 6.0", a.getAmount() + " " + b.getAmount() + " " + c.getAmount() + " " + d.getAmount() + " " + e.getAmount() + " " + f.getAmount());
 
+		c.addWater(6);
+
+		Assertions.assertEquals(7, a.getAmount());
+
 	}
 
 }

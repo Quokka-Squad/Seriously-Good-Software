@@ -7,26 +7,39 @@ import java.util.Set;
 public class Container {
 
 	private double amount;
-	private final Set<Container> containerSet;
+	private final Set<Container> directConnectedSet;
+	private final Set<Container> inDirectConnectedSet;
+
 
 	public Container() {
 		this.amount = 0;
-		containerSet = new HashSet<>();
-		containerSet.add(this);
+		directConnectedSet = new HashSet<>();
+		inDirectConnectedSet = new HashSet<>();
+		directConnectedSet.add(this);
+		inDirectConnectedSet.add(this);
 	}
 
 	public void connectTo(Container other) {
-		this.containerSet.addAll(other.containerSet);
+		this.directConnectedSet.add(other);
+		other.directConnectedSet.add(this);
 
-		Iterator<Container> iterator = containerSet.iterator();
+		Iterator<Container> iterator = directConnectedSet.iterator();
+
 		while (iterator.hasNext()) {
-			iterator.next().containerSet.addAll(this.containerSet);
+			inDirectConnectedSet.addAll(iterator.next().directConnectedSet);
 		}
 
-		double totalAmount = containerSet.stream().mapToDouble(container -> container.amount).sum();
+		iterator = inDirectConnectedSet.iterator();
 
-		double average = totalAmount / containerSet.size();
-		iterator = containerSet.iterator();
+		while (iterator.hasNext()) {
+			iterator.next().inDirectConnectedSet.addAll(inDirectConnectedSet);
+		}
+
+		double totalAmount = inDirectConnectedSet.stream().mapToDouble(container -> container.amount).sum();
+
+		iterator = inDirectConnectedSet.iterator();
+		double average = totalAmount / inDirectConnectedSet.size();
+
 		while (iterator.hasNext()) {
 			iterator.next().amount = average;
 		}
@@ -35,9 +48,9 @@ public class Container {
 
 
 	public void addWater(double amount) {
-		Iterator<Container> iterator = containerSet.iterator();
+		Iterator<Container> iterator = inDirectConnectedSet.iterator();
 
-		double divideAmount = amount / containerSet.size();
+		double divideAmount = amount / inDirectConnectedSet.size();
 
 		while (iterator.hasNext()) {
 			iterator.next().amount += divideAmount;
