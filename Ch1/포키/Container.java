@@ -11,29 +11,36 @@ public class Container {
     }
 
     public void connectTo(Container other) {
-
-        directConnectionGroup.add(other);
-        other.directConnectionGroup.add(this);
-
-        if (indirectConnectionGroup.size() != 0) {
-            indirectConnectionGroup.forEach(s -> {
-                s.indirectConnectionGroup.add(other);
-                other.indirectConnectionGroup.add(s);
-            });
-        }
-
-        int connectedContainerCount = directConnectionGroup.size() + indirectConnectionGroup.size();
-        double newAmount = ((amount * connectedContainerCount) + other.amount) / (connectedContainerCount+1);
-        amount = newAmount;
-        directConnectionGroup.forEach(s -> s.amount = newAmount);
-        indirectConnectionGroup.forEach(s -> s.amount = newAmount);
+        makeDirectConnection(other);
+        makeIndirectConnection(other);
+        redistributeWater(other);
     }
 
     public void addWater(double amount) {
         this.amount += amount;
     }
 
+    private void makeDirectConnection(Container other) {
+        directConnectionGroup.add(other);
+        other.directConnectionGroup.add(this);
+    }
 
+    private void makeIndirectConnection(Container other) {
+        if (indirectConnectionGroup.size() != 0) {
+            indirectConnectionGroup.forEach(s -> {
+                s.indirectConnectionGroup.add(other);
+                other.indirectConnectionGroup.add(s);
+            });
+        }
+    }
+
+    private void redistributeWater(Container other) {
+        int connectedContainerCount = directConnectionGroup.size() + indirectConnectionGroup.size();
+        double newAmount = ((amount * connectedContainerCount) + other.amount) / (connectedContainerCount+1);
+        amount = newAmount;
+        directConnectionGroup.forEach(s -> s.amount = newAmount);
+        indirectConnectionGroup.forEach(s -> s.amount = newAmount);
+    }
 }
 
 //요구사항
