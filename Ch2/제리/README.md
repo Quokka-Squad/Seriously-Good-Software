@@ -56,8 +56,10 @@ UML Diagram이 사용되는 곳
 
 <br>
 
+=============Toggle=============
+
 <details>
-<summary>UML 클래스 다이어그램 실습   ← toggle </space></summary>
+<summary> UML 클래스 다이어그램 실습   ← Click!!  </summary>
 <div markdown="1">
 
 ```java
@@ -143,6 +145,8 @@ UML Diagram이 사용되는 곳
 
 </div>
 </details>
+
+=============Toggle=============
 
 <br>
 
