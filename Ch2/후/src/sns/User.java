@@ -12,4 +12,9 @@ public class User {
         this.name = name;
         this.friends = new HashSet<>();
     }
+
+    public void befriend(User other) {
+        friends.add(other);
+        other.friends.add(this);
+    }
 }
