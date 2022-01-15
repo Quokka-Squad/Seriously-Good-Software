@@ -17,4 +17,17 @@ public class User {
         friends.add(other);
         other.friends.add(this);
     }
+
+    public boolean isDirectFriendOf(User other) {
+        return friends.contains(other);
+    }
+
+    public boolean isIndirectFriendOf(User other) {
+        Set<User> friendsOfFriends = new HashSet<>();
+        friends.forEach(f -> {
+            friendsOfFriends.addAll(f.friends);
+        });
+        friendsOfFriends.removeAll(friends);
+        return friendsOfFriends.contains(other);
+    }
 }
