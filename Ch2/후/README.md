@@ -11,7 +11,7 @@
 
 ## JCF(Java Collection Framework)
 
-![https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3c9d8617-ba15-459a-a54e-e279764f9177/CollectionsFramework.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220114T121351Z&X-Amz-Expires=86400&X-Amz-Signature=33444809839d5d0560bdce7ed20c07d900934a339704bb5a691bdd0504daedc2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22CollectionsFramework.png%22&x-id=GetObject](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3c9d8617-ba15-459a-a54e-e279764f9177/CollectionsFramework.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220114T121351Z&X-Amz-Expires=86400&X-Amz-Signature=33444809839d5d0560bdce7ed20c07d900934a339704bb5a691bdd0504daedc2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22CollectionsFramework.png%22&x-id=GetObject)
+![CollectionsFramework](https://user-images.githubusercontent.com/68011320/149615048-53770627-1abc-46ba-9177-db41110f190b.png)
 
 ## 소프트웨어 설계를 표현하는 다이어그램
 
@@ -72,3 +72,140 @@
         - ex) 병합 정렬로 배열 정렬하기
     - O(n^2) : 이차 시간
         - ex) 버블 정렬로 배열 정렬하기
+
+## 퀴즈 & 연습 문제
+
+### ‼️️ **[돌발 퀴즈 1]** 스마트폰의 연락처를 저장한다면 어떠한 컬렉션 인터페이스와 클래스를 선택해야 할까?
+
+→ `Map`, `HashMap`
+
+- 연락처를 저장할 때에는 이름, 번호를 필수로 포함하고 부가정보를 선택적으로 저장
+- 이 때 이름은 중복될 수도 있으나 번호는 중복 허용 X
+- 따라서 `key-value` 값을 가지는 `Map`을 선택하여 번호를 `key`, 이름이나 부가정보를 포함한 객체를 `value`로 가지는 `HashMap`을 선택한다. (
+  검색에 용이하기 때문에)
+
+⇒ `SortedSet`, `TreeSet`
+
+- 일반적으로 이름의 알파벳 순으로 연락처 목록을 정리하기 때문에 `SortedSet`으로 표현하고 `TreeSet` 클래스로 구현
+
+### ‼️ **[돌발 퀴즈 2]** 클래스 다이어그램으로 자바 클래스의 주요 속성과 메서드, 클래스의 관계를 표현하자.
+
+→ 자바 클래스가 의미하는게 뭘까요? 표준 라이브러리들 말하는건가ㅎㅎ
+
+⇒ 클래스와 메서드의 관계를 클래스 다이어그램으로 나타내보는 것이였군요... 정답 보고 따라 그려봤습니다.
+
+![Class-Method](https://user-images.githubusercontent.com/68011320/149615051-75fd30e0-f4c5-40ff-9c43-bd07baf5e784.jpeg)
+
+### ‼️ **[돌발 퀴즈 3]** `android.graphics.Rect` 클래스는 `int` 타입의 `public` 필드 4개를 포함한다. `Rect` 객체는 몇 바이트를 차지할까?
+
+→ `28byte` (패딩 제외)
+
+- 객체 헤더 `12byte`
+- `int` 타입의 필드 4개 `4byte` * 4 = `16byte`
+- 패딩 `4byte`(32 - (12 + 16))
+
+### ‼️ **[돌발 퀴즈 4]** 정렬되지 않은 정수 배열에 대해 배열 요소들이 palindrome을 형성하는지 확인하는 작업의 복잡도는 어떠한가?
+
+→ $O(log n)$ : 선형 시간
+
+- 1/2 n 예상합니다... 배열의 앞 뒤를 한번에 하나씩 비교해서 절반까지
+
+### [연습 문제 1]
+
+1. 다음 메서드의 복잡도는?
+
+    ```java
+    public static int[][] identityMatrix(int n) { // n^2+n+3 
+    	int[][] result = new int[n][n]; // 1
+    	for (int i = 0; i < n; i++) { // n
+    		for (int j = 0; j < n; j++ { // n*n
+    			if (i==j) { // 1
+    				result[i][j] = 1; // 1
+    			}
+    		}
+    	}
+    	return result;
+    }
+    ```
+
+   → $O(n^2)$
+
+2. 메서드의 결과에 영향을 미치지 않고 더 효율적으로 만들 수 있는가?
+
+   → 행과 열의 인덱스가 같은 요소만 1을 할당하는 메서드이므로 반복문 중첩을 하나 없앨 수 있다.
+
+    ```java
+    public static int[][] identityMatrix(int n) {
+    	int[][] result = new int[n][n];
+    	for (int i = 0; i < n; i++) {
+    		result[i][i] = 1;
+    	}
+    	return result;
+    }
+    ```
+
+3. 더 효율적인 버전을 만들었다면 더 낮은 복잡도를 보이는가?
+
+   → 개선된 메서드는 $O(n)$의 복잡도를 가진다.
+
+   ⇒ 복잡도는 여전히 $O(n^2)$이다. 두 번째 행에서 배열을 할당할 때 암묵적으로 배열의 모든 요소 $n^2$개를 0으로 초기화하기 때문(이럴수가...)
+
+### [연습 문제 2]
+
+`java.util.LinkedList<T>` 클래스는 `T` 타입 객체의 참조를 포함하는 이중 연결 리스트를 구현한다. 소스 코드를 확인한 후 요소 개수가 n일
+때 `LinkedList`의 크기를 바이트 단위로 평가하라(n개 객체가 차지하는 공간은 제외)
+
+→ `28byte` + `24byte` * n
+
+```java
+public class LinkedList<E>
+    extends AbstractSequentialList<E>
+    implements List<E>, Deque<E>, Cloneable, java.io.Serializable {
+
+    transient int size = 0;
+    transient Node<E> first;
+    transient Node<E> last;
+
+    // protected transient int modCount = 0; <- 상속
+
+	...
+
+    private static class Node<E> {
+
+        E item;
+        Node<E> next;
+        Node<E> prev;
+
+        Node(Node<E> prev, E element, Node<E> next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
+
+	...
+
+}
+```
+
+- 객체 헤더 : `12byte`
+- 참조 크기 : `16byte`
+    - int size `4byte`
+    - Node first `4byte`
+    - Node last `4byte`
+    - 상속된 int modeCount `4byte`
+- 각 요소(Node) : `24byte`
+    - 객체 헤더 : `12byte`
+    - 참조 크기 : `4byte` * 3 = `12byte`
+
+### [연습 문제 3] 미니 프로젝트
+
+소셜 네트워크 개인을 나타내는 `User` 클래스를 만들고 다음과 같은 기능을 제공하자.
+
+- 각 사용자는 이름이 있다. 이름을 받아들이는 `public` 생성자를 만들자.
+- 다음과 같은 메서드로 친구 관계를 맺을 수 있다.
+    - `public void befriend(User other)`
+    - 친구 관계는 대칭적으로, `a.befriend(b)`는 `b.befriend(a)`와 같다.
+- 클라이언트는 다음과 같은 메서드를 이용해 주어진 두 사용자가 직접적인 친구인지, 간접적인 친구(친구의 친구)인지 알 수 있다.
+    - `public boolean isDirectFriendOf(User other)`
+    - `public boolean isIndirectFriendOf(User other)`
