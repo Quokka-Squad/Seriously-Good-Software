@@ -1,4 +1,4 @@
-package uml;
+package ch2.uml;
 
 public abstract class Patty {
 
