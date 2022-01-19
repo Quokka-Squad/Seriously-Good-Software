@@ -53,5 +53,12 @@ public class Container {
         return groupSize;
     }
 
+    public void flush() {
+        Container current = this;
+        do {
+            current.amount = 0;
+            current = current.next;
+        } while (current != this);
+    }
 }
 

@@ -43,6 +43,9 @@ class ContainerTest {
 		assertEquals(8, d.getAmount());
 		assertEquals(4, a.groupSize());
 
+		c.flush();
+		assertEquals(0, a.getAmount());
+
 	}
 
 }
