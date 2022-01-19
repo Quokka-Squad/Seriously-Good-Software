@@ -6,7 +6,6 @@ import java.util.List;
 
 public class IntStats {
 
-	//todo 성능 요구 사항
 	// insert(), getAverage() -> O(1)
 	private final List<Integer> list;
 	private double average;
@@ -27,6 +26,9 @@ public class IntStats {
 
 	@SuppressWarnings("IntegerDivisionInFloatingPointContext")
 	public double getMedian() {
+		if (list.isEmpty()) {
+			return 0;
+		}
 		Collections.sort(list);
 		if (list.size() % 2 == 1) {
 			return list.get(list.size() / 2);

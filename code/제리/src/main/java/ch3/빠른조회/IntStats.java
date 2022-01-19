@@ -1,19 +1,38 @@
 package ch3.빠른조회;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class IntStats {
 
-	//todo getAverage(), getMedian -> O(1)
+	// getAverage(), getMedian -> O(1)
+	private final List<Integer> list;
+	private int average;
+
+	public IntStats() {
+		list = new ArrayList<>();
+		average = 0;
+	}
+
 	public void insert(int n) {
-		//todo 정수 하나를 리스트에 추가
+		average = (average * list.size() + n) / (list.size() + 1);
+		list.add(n);
+		Collections.sort(list);
 	}
 
 	public double getAverage() {
-		return 0;
-
+		return average;
 	}
 
 	public double getMedian() {
-		return 0;
+		if (list.isEmpty()) {
+			return 0;
+		}
+		if (list.size() % 2 == 1) {
+			return list.get(list.size() / 2);
+		}
+		return ((double) list.get(list.size() / 2) + list.get(list.size() / 2 - 1)) / 2;
 	}
 
 }
