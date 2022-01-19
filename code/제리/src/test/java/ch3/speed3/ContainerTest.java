@@ -19,6 +19,7 @@ class ContainerTest {
 		a.connectTo(d);
 
 		assertEquals(3, d.getAmount());
+		assertEquals(4, d.getSize());
 	}
 
 }

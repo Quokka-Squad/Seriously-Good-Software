@@ -46,5 +46,10 @@ public class Container {
             root1.size  += size2;
         }
     }
+
+    public int getSize() {
+        Container root = findRootAndCompress();
+        return root.size;
+    }
 }
 
