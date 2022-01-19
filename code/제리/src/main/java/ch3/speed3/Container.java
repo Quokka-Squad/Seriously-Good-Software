@@ -51,5 +51,10 @@ public class Container {
         Container root = findRootAndCompress();
         return root.size;
     }
+
+    public void flush() {
+        Container root = findRootAndCompress();
+        root.amount = 0;
+    }
 }
 

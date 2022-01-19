@@ -20,6 +20,10 @@ class ContainerTest {
 
 		assertEquals(3, d.getAmount());
 		assertEquals(4, d.getSize());
+
+		d.flush();
+		assertEquals(0, a.getAmount());
+
 	}
 
 }
