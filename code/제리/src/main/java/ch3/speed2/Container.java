@@ -42,5 +42,16 @@ public class Container {
             current = current.next;
         } while (current != this);
     }
+
+    public int groupSize() {
+        int groupSize = 0;
+        Container current = this;
+        do {
+            current = current.next;
+            groupSize++;
+        } while (current != this);
+        return groupSize;
+    }
+
 }
 

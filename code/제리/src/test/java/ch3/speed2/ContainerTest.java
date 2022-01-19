@@ -18,27 +18,30 @@ class ContainerTest {
 
 		assertEquals(11, a.getAmount());
 		assertEquals(11, b.getAmount());
+		assertEquals(2, a.groupSize());
 
-		b.connectTo(a);
-		b.addWater(4);
-		assertEquals(13, a.getAmount());
-		assertEquals(13, b.getAmount());
+//		b.connectTo(a);
+//		b.addWater(4);
+//		assertEquals(13, a.getAmount());
+//		assertEquals(13, b.getAmount());
 
 		c.addWater(10);
 		d.connectTo(c);
 		assertEquals(5, c.getAmount());
 		assertEquals(5, d.getAmount());
+		assertEquals(2, d.groupSize());
 
 		a.connectTo(c);
-		System.out.println(a.getAmount());
-		System.out.println(b.getAmount());
-		System.out.println(c.getAmount());
-		System.out.println(d.getAmount());
+//		System.out.println(a.getAmount());
+//		System.out.println(b.getAmount());
+//		System.out.println(c.getAmount());
+//		System.out.println(d.getAmount());
 
 		assertEquals(8, a.getAmount());
 		assertEquals(8, b.getAmount());
 		assertEquals(8, c.getAmount());
 		assertEquals(8, d.getAmount());
+		assertEquals(4, a.groupSize());
 
 	}
 
