@@ -33,5 +33,9 @@ public class Container {
         group.amountPerContainer = newAmount;
         for (Container x: other.group.members) x.group = group;
     }
+
+    public int groupSize() {
+        return group.members.size();
+    }
 }
 

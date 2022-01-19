@@ -2,7 +2,7 @@ package ch3.speed1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import ch1.Container;
+import ch3.speed1.Container;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,6 +22,7 @@ class ContainerTest {
 		a.connectTo(b);
 		assertEquals(6.0, a.getAmount());
 		assertEquals(6.0, b.getAmount());
+		assertEquals(2, a.groupSize());
 
 		d.addWater(8);
 
@@ -29,12 +30,14 @@ class ContainerTest {
 		assertEquals(4.0, a.getAmount());
 		assertEquals(4.0, b.getAmount());
 		assertEquals(4.0, c.getAmount());
+		assertEquals(3, a.groupSize());
 
 		b.connectTo(d);
 		assertEquals(5.0, a.getAmount());
 		assertEquals(5.0, b.getAmount());
 		assertEquals(5.0, c.getAmount());
 		assertEquals(5.0, d.getAmount());
+		assertEquals(4, a.groupSize());
 
 		b.addWater(4);
 		assertEquals(6.0, a.getAmount());
