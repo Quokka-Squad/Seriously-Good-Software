@@ -37,5 +37,9 @@ public class Container {
     public int groupSize() {
         return group.members.size();
     }
+
+    public void flush() {
+        group.amountPerContainer = 0;
+    }
 }
 

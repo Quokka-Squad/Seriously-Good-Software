@@ -45,6 +45,9 @@ class ContainerTest {
 		assertEquals(6.0, c.getAmount());
 		assertEquals(6.0, d.getAmount());
 
+		d.flush();
+		assertEquals(0, a.getAmount());
+
 	}
 
 }
