@@ -1,0 +1,45 @@
+package ch3.speed2;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class ContainerTest {
+
+	@Test
+	void test() {
+		Container a = new Container();
+		Container b = new Container();
+		Container c = new Container();
+		Container d = new Container();
+
+		a.connectTo(b);
+		b.addWater(22);
+
+		assertEquals(11, a.getAmount());
+		assertEquals(11, b.getAmount());
+
+		b.connectTo(a);
+		b.addWater(4);
+		assertEquals(13, a.getAmount());
+		assertEquals(13, b.getAmount());
+
+		c.addWater(10);
+		d.connectTo(c);
+		assertEquals(5, c.getAmount());
+		assertEquals(5, d.getAmount());
+
+		a.connectTo(c);
+		System.out.println(a.getAmount());
+		System.out.println(b.getAmount());
+		System.out.println(c.getAmount());
+		System.out.println(d.getAmount());
+
+		assertEquals(8, a.getAmount());
+		assertEquals(8, b.getAmount());
+		assertEquals(8, c.getAmount());
+		assertEquals(8, d.getAmount());
+
+	}
+
+}
