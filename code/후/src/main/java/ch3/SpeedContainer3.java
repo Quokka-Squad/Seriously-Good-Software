@@ -25,4 +25,26 @@ public class SpeedContainer3 {
         }
         root.amount += amount / root.size;
     }
+
+    public void connectTo(SpeedContainer3 other) {
+        SpeedContainer3 thisRoot = findRootAndCompress();
+        SpeedContainer3 otherRoot = other.findRootAndCompress();
+        if (thisRoot == otherRoot) {
+            return;
+        }
+        int thisSize = thisRoot.size;
+        int otherSize = otherRoot.size;
+        double newAmount =
+            ((thisRoot.amount * thisSize) + (otherRoot.amount * otherSize))
+                / (thisSize + otherSize);
+        if (thisSize <= otherSize) {
+            this.parent = other;
+            other.amount = newAmount;
+            other.size += this.size;
+        } else {
+            other.parent = this.parent;
+            this.amount = newAmount;
+            this.size += other.size;
+        }
+    }
 }
