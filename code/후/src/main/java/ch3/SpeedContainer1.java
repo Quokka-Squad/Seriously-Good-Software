@@ -4,16 +4,21 @@ import java.util.*;
 
 public class SpeedContainer1 {
 
-    private Set<SpeedContainer1> group;
-    private double amount;
+    private static class Group {
 
-    public SpeedContainer1() {
-        group = new HashSet<>();
-        group.add(this);
+        double amountPerContainer;
+        Set<SpeedContainer1> members;
+
+        Group(SpeedContainer1 c) {
+            members = new HashSet<>();
+            members.add(c);
+        }
     }
 
+    private Group group = new Group(this);
+
     public double getAmount() {
-        return amount;
+        return group.amountPerContainer;
     }
 
     public void connectTo(SpeedContainer1 other) {
@@ -21,25 +26,21 @@ public class SpeedContainer1 {
             return;
         }
 
-        int size1 = group.size();
-        int size2 = other.group.size();
-        double total1 = amount * size1;
-        double total2 = amount * size2;
+        int size1 = group.members.size();
+        int size2 = other.group.members.size();
+        double total1 = group.amountPerContainer * size1;
+        double total2 = other.group.amountPerContainer * size2;
         double newAmount = (total1 + total2) / (size1 + size2);
 
-        group.addAll(other.group);
-        for (SpeedContainer1 c : other.group) {
+        group.members.addAll(other.group.members);
+        group.amountPerContainer = newAmount;
+        for (SpeedContainer1 c : other.group.members) {
             c.group = group;
-        }
-        for (SpeedContainer1 c : group) {
-            c.amount = newAmount;
         }
     }
 
     public void addWater(double amount) {
-        double amountPerContainer = amount / group.size();
-        for (SpeedContainer1 c : group) {
-            c.amount += amountPerContainer;
-        }
+        double amountPerContainer = amount / group.members.size();
+        group.amountPerContainer += amountPerContainer;
     }
 }
