@@ -1,4 +1,4 @@
-package ch3;
+package ch3.speed;
 
 import java.util.*;
 

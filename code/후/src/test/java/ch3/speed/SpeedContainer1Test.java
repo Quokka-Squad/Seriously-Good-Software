@@ -1,17 +1,17 @@
-package ch3;
+package ch3.speed;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class SpeedContainer2Test {
+class SpeedContainer1Test {
 
     @Test
     void runExampleScenario() {
-        SpeedContainer2 a = new SpeedContainer2();
-        SpeedContainer2 b = new SpeedContainer2();
-        SpeedContainer2 c = new SpeedContainer2();
-        SpeedContainer2 d = new SpeedContainer2();
+        SpeedContainer1 a = new SpeedContainer1();
+        SpeedContainer1 b = new SpeedContainer1();
+        SpeedContainer1 c = new SpeedContainer1();
+        SpeedContainer1 d = new SpeedContainer1();
 
         a.addWater(12);
         d.addWater(8);
