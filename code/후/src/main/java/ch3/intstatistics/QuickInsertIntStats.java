@@ -21,10 +21,11 @@ public class QuickInsertIntStats implements IntStats {
     @Override
     public double getMedian() {
         Collections.sort(numbers);
-        if (numbers.size() % 2 == 0) {
-            return (numbers.get(numbers.size() / 2 - 1) + numbers.get(numbers.size() / 2)) / 2.0;
+        final int size = numbers.size();
+        if (size % 2 == 0) {
+            return (numbers.get(size / 2 - 1) + numbers.get(size / 2)) / 2.0;
         }
-        return numbers.get(numbers.size() / 2);
+        return numbers.get(size / 2);
     }
 
     public List<Integer> getNumbers() {
