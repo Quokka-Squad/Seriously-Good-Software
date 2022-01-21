@@ -12,4 +12,9 @@ public class SpeedContainer3 {
         }
         return parent;
     }
+
+    public double getAmount() {
+        SpeedContainer3 root = findRootAndCompress();
+        return root.amount;
+    }
 }
