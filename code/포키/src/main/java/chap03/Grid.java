@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Grid {
     private int maxEnergy;
-    private Set<Appliance> connections = new HashSet<>();
+
 
 
     public Grid(int maxEnergy) {
@@ -14,14 +14,6 @@ public class Grid {
 
     public int getMaxEnergy() {
         return maxEnergy;
-    }
-
-    public void setConnection(Appliance appliance) {
-        connections.add(appliance);
-    }
-
-    public void deleteConnection(Appliance appliance) {
-        connections.remove(appliance);
     }
 
     public void useEnergy(int energy) {

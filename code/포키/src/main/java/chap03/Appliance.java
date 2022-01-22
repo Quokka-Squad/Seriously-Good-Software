@@ -13,10 +13,6 @@ public class Appliance {
     }
 
     public void plugIn(Grid grid) {
-        if (Objects.nonNull(connectedGrid)) {
-            connectedGrid.deleteConnection(this);
-        }
-        grid.setConnection(this);
         connectedGrid = grid;
     }
 
