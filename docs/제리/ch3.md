@@ -247,6 +247,10 @@ private void updateGroup() {
 | addWater | O(1) |
   
 
+<br>
+
+<br>
+
 ## 최적의 균형: 합집합 찾기 알고리즘
 
   
@@ -318,6 +322,8 @@ public void connectTo(Container other) {
 
 <br>
 
+<br>
+
 ## 3가지 구현에 대한 결론
 
 속도를 최적화하는 3가지 방법
@@ -330,6 +336,8 @@ public void connectTo(Container other) {
 
 <br>
 
+<br>
+
 ## 분할상환 시간 복잡도  
 
 빅 오 표기법은 최악의 상황에서의 시간 복잡도를 나타낸다. 보통의 경우 최악의 상황이 아닌 경우도 많으므로 빅 오 표기법만으로 시간 복잡도를 나타내는 것은 편협한 시각으로 볼 수 있다.
@@ -337,6 +345,8 @@ public void connectTo(Container other) {
 분할상환 시간 복잡도는 코드를 여러번 실행하면서 현재의 비용에 따른 미래의 이득까지 고려한 시간 복잡도를 다룬다. 즉 speed3에서 O(log n)의 비용으로 `findRootAndCompress()`를 계속 호출했는데 이렇게 경로 압축(추가 비용지출)을 하면서 미래에 `getAmount`, `addWater` 시에 상수시간만으로 메서드를 호출할 수 있게 된다.
 
 speed3에 대해 분할상환 시간 복잡도를 분석해보면 O(m * *a*(n)) 으로 O(1)으로 볼 수 있다.
+
+<br>
 
 <br>
 
