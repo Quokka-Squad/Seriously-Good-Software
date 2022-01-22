@@ -102,6 +102,44 @@ private static class Group {
 ```
 
 ```java
+void test() {
+  Container a = new Container();
+  Container b = new Container();
+  Container c = new Container();
+  // 그림1
+
+  a.addWater(8);
+  c.addWater(6);
+  // 그림2
+  a.connectTo(b);
+  // 그림3
+  c.connectTo(a);
+  // 그림4
+}
+
+```
+
+그림1
+
+<img width="653" alt="스크린샷 2022-01-22 13 11 23" src="https://user-images.githubusercontent.com/81368630/150624683-b77fbec2-b732-4dcc-b19a-4dafca4c6251.png">
+
+그림2
+
+<img width="654" alt="스크린샷 2022-01-22 13 11 50" src="https://user-images.githubusercontent.com/81368630/150624690-1f2b8961-97f5-4d9c-ac5f-683e688f884e.png">
+
+그림3
+
+<img width="656" alt="스크린샷 2022-01-22 13 13 35" src="https://user-images.githubusercontent.com/81368630/150624694-f54370cc-8aea-422e-af59-773bbab300f5.png">
+
+
+그림4
+
+<img width="654" alt="스크린샷 2022-01-22 13 30 57" src="https://user-images.githubusercontent.com/81368630/150624699-23077965-c981-4656-af0e-969b216c9013.png">
+
+
+<br>
+
+```java
 public double getAmount() { return group.amountPerContainer; }  
   
 public void addWater(double amount) {  
