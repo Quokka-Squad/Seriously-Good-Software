@@ -26,7 +26,7 @@
 
 - 집합들의 집합에서 포함 관계는 부분순서의 전형적인 예이다. 정수들의 집합에서 부등식 <= 도 부분순서이다.
 
-  
+<br>
 
 **극대 원소**
 
@@ -63,6 +63,8 @@ public class MaximalElementsExample {
 <img width="593" alt="스크린샷 2022-01-22 11 09 07" src="https://user-images.githubusercontent.com/81368630/150621209-0ca3fb39-b98e-4fab-b98f-e898425239cf.png">
   
 
+<br>
+
 **파레토 최적**
 
   
@@ -72,9 +74,10 @@ public class MaximalElementsExample {
 <img width="413" alt="스크린샷 2022-01-22 11 17 51" src="https://user-images.githubusercontent.com/81368630/150621204-560eaa48-2574-4d79-bc57-bddcfcb945d6.png">
   
 
-![Pareto_distribution](https://user-images.githubusercontent.com/81368630/150564991-6fbfb378-3036-4688-9f78-b2091ccb8564.png)
+<img src = "https://user-images.githubusercontent.com/81368630/150564991-6fbfb378-3036-4688-9f78-b2091ccb8564.png" width="50%" height="50%">
 
-  
+[이미지 출처 : 파레토 분포 - 위키백과](https://ko.wikipedia.org/wiki/%ED%8C%8C%EB%A0%88%ED%86%A0_%EB%B6%84%ED%8F%AC)
+
 
 <br>
 
@@ -130,7 +133,8 @@ public void connectTo(Container other) {
 | addWater | O(1) |
 
 
-  
+<br>
+
 
 ## 상수 시간에 연결 추가하기
 
@@ -186,7 +190,12 @@ void test() {
 }
 ```
 
+그림1
+
 <img width="390" alt="스크린샷 2022-01-20 09 42 08" src="https://user-images.githubusercontent.com/81368630/150621525-7f790f54-5df7-4ca3-be8e-fa93c158b3ac.png">
+
+그림2
+
 <img width="400" alt="스크린샷 2022-01-20 09 42 29" src="https://user-images.githubusercontent.com/81368630/150621527-b2b8892e-9437-4907-90fe-5a7eac7b3f34.png">
 
 
@@ -227,7 +236,7 @@ private void updateGroup() {
 ```
 
 
-
+<br>
 
 **speed2의 시간 복잡도**
 
@@ -249,6 +258,7 @@ private void updateGroup() {
 	- Union() : x와 y를 합친다.
 		- 크기에 따른 연결 정책 (큰 크기가 집합의 대표를 갖고 있도록 함)
 
+<br>
 
 **부모 포인터 트리**
 
@@ -259,6 +269,8 @@ private void updateGroup() {
 각 노드가 자식의 노드를 모두 가지고 있는 트리
 
 ex) TreeSet
+
+<br>
 
 ```java
 private Container findRootAndCompress() {  
@@ -304,6 +316,7 @@ public void connectTo(Container other) {
 | connectTo | O(log n) |
 | addWater | O(log n) |
 
+<br>
 
 ## 3가지 구현에 대한 결론
 
@@ -315,6 +328,8 @@ public void connectTo(Container other) {
 
 코드를 실행하고 있는 응용 환경과 클라이언트의 메서드 호출 빈도를 통해서 호출 빈도가 가장 높은 메서드의 처리 시간이 가장 낮은 구현방법을 선택하는 것이 속도를 최적화 하는데 가장 현명한 선택.
 
+<br>
+
 ## 분할상환 시간 복잡도  
 
 빅 오 표기법은 최악의 상황에서의 시간 복잡도를 나타낸다. 보통의 경우 최악의 상황이 아닌 경우도 많으므로 빅 오 표기법만으로 시간 복잡도를 나타내는 것은 편협한 시각으로 볼 수 있다.
@@ -323,6 +338,7 @@ public void connectTo(Container other) {
 
 speed3에 대해 분할상환 시간 복잡도를 분석해보면 O(m * *a*(n)) 으로 O(1)으로 볼 수 있다.
 
+<br>
 
 ## 구현 방식 비교하기
 
@@ -338,18 +354,20 @@ speed3에 대해 분할상환 시간 복잡도를 분석해보면 O(m * *a*(n)) 
 | Speed2 | O(n) |O(1) | O(1)|
 | Speed3 | O(log n) |O(log n) | O(log n)|
 
+<br>
 
 **첫번째 실험**
 
 getAmount, addWater, connectTo 모두 적절히 사용
 
-|버전| 시간(ms)|
+|버전| 시간(ms)|
 |--|--|
 | Reference | 2300 |
 | Speed1 | 26 |
 | Speed2 | 505 |
 | Speed3 | 6 |
 
+<br>
 
 **두번째 실험**
 
@@ -357,14 +375,14 @@ addWater, connectTo는 적절히 사용, getAmount는 한번만 실행
 
 -> getAmount의 시간복잡도가 O(n)이고 나머지의 시간복잡도가 O(1)인 speed2에게 유리한 실험
 
-|버전| 시간(ms)|
+|버전| 시간(ms)|
 |--|--|
 | Reference | 2300 |
 | Speed1 | 25 |
 | Speed2 | 4 |
 | Speed3 | 5 |
 
-
+<br>
 
 <br>
 
@@ -444,7 +462,7 @@ public class IntStats {
 
   
 
-돌발 퀴즈 1
+**돌발 퀴즈 1**
 
   
 
@@ -460,7 +478,7 @@ Object Class가 극대 원소이고 Object Class를 상속받는 모든 다른 �
 
   
 
-돌발 퀴즈 2
+**돌발 퀴즈 2**
 
   
 
@@ -476,7 +494,7 @@ Q) 단일 순환 연결 리스트에서 주어진 노드를 제거하는 연산�
 
   
 
-돌발 퀴즈 3
+**돌발 퀴즈 3**
 
   
 
@@ -492,7 +510,7 @@ Q) 여러분의 삶에서 즉시 해야 할 2가지 일과 최대한 지연시�
 
   
 
-돌발 퀴즈 4
+**돌발 퀴즈 4**
 
   
 
@@ -506,9 +524,10 @@ Q) 여러분이 자바 컴파일러를 만든다고 가정해보자. 클래스 �
 
 <br>
 
+<br>
   
 
-연습문제 1
+**연습문제 1**
 
   
 
@@ -608,7 +627,7 @@ O(log n)
 <br>
 
   
-1- 2) 다른 메서드 건드리지 않고 groupSize가 O(1)로 수행하도록 speed2 수정 가능?
+**1- 2) 다른 메서드 건드리지 않고 groupSize가 O(1)로 수행하도록 speed2 수정 가능?**
 
   
 
@@ -632,7 +651,7 @@ or
 
   
 
-연습문제 2
+**연습문제 2**
 
   
 
@@ -731,7 +750,7 @@ O(log n)
 
   
 
-2 - 2번 풀이
+**2 - 2번 풀이**
 
   
 
@@ -743,7 +762,7 @@ O(log n)
 
   
 
-연습문제 3
+**연습문제 3**
 
   
 
@@ -824,7 +843,7 @@ public class Appliance {
 
   
 
-Q2) 상수 시간에 실행됨?
+**Q2) 상수 시간에 실행됨?**
 
   
 
@@ -834,9 +853,9 @@ yes~
 
 <br>
 
-  
+<br>
 
-연습문제 4
+**연습문제 4**
 
   
 
@@ -846,6 +865,7 @@ Q1) ArrayList에서 용량 10%씩 증가 -> 분활상환 복잡도 상수?
 
 당연
 
+<br>
   
 
 Q2) 기존 50% 대비 얼마나 자주 확장?
