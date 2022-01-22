@@ -47,4 +47,25 @@ class SpeedContainer1Test {
         assertEquals(3, a.groupSize());
         assertEquals(1, d.groupSize());
     }
+
+    @Test
+    void flush() {
+        SpeedContainer1 a = new SpeedContainer1();
+        SpeedContainer1 b = new SpeedContainer1();
+        SpeedContainer1 c = new SpeedContainer1();
+        SpeedContainer1 d = new SpeedContainer1();
+
+        a.addWater(12);
+        d.addWater(8);
+
+        a.connectTo(b);
+        b.connectTo(c);
+        b.connectTo(d);
+
+        a.flush();
+        assertEquals(0, a.getAmount());
+        assertEquals(0, b.getAmount());
+        assertEquals(0, c.getAmount());
+        assertEquals(0, d.getAmount());
+    }
 }
