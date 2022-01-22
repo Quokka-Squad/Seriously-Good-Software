@@ -47,4 +47,8 @@ public class SpeedContainer1 {
     public int groupSize() {
         return group.members.size();
     }
+
+    public void flush() {
+        group.amountPerContainer = 0;
+    }
 }

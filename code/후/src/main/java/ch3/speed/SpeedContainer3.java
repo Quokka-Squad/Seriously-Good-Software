@@ -51,4 +51,8 @@ public class SpeedContainer3 {
     public int groupSize() {
         return findRootAndCompress().size;
     }
+
+    public void flush() {
+        findRootAndCompress().amount = 0;
+    }
 }

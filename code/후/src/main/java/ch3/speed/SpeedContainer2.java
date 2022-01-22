@@ -50,4 +50,12 @@ public class SpeedContainer2 {
         }
         return groupSize;
     }
+
+    public void flush() {
+        SpeedContainer2 current = this;
+        while (current.next != this) {
+            current.amount = 0;
+            current = current.next;
+        }
+    }
 }
