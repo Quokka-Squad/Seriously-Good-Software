@@ -43,4 +43,8 @@ public class SpeedContainer1 {
         double amountPerContainer = amount / group.members.size();
         group.amountPerContainer += amountPerContainer;
     }
+
+    public int groupSize() {
+        return group.members.size();
+    }
 }

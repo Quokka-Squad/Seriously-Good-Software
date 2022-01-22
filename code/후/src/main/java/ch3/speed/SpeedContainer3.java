@@ -47,4 +47,8 @@ public class SpeedContainer3 {
             this.size += other.size;
         }
     }
+
+    public int groupSize() {
+        return findRootAndCompress().size;
+    }
 }

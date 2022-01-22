@@ -40,4 +40,14 @@ public class SpeedContainer2 {
         //현재 수조만 갱신
         this.amount += amount;
     }
+
+    public int groupSize() {
+        int groupSize = 1;
+        SpeedContainer2 current = this;
+        while (current.next != this) {
+            groupSize++;
+            current = current.next;
+        }
+        return groupSize;
+    }
 }
