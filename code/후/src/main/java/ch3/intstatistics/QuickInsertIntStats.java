@@ -19,9 +19,12 @@ public class QuickInsertIntStats implements IntStats {
     }
 
     @Override
-    public double getMedian() {
+    public double getMedian() throws IllegalStateException {
         Collections.sort(numbers);
         final int size = numbers.size();
+        if (size == 0) {
+            throw new IllegalStateException("리스트가 비어있습니다.");
+        }
         if (size % 2 == 0) {
             return (numbers.get(size / 2 - 1) + numbers.get(size / 2)) / 2.0;
         }

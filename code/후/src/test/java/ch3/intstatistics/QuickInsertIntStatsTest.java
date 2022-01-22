@@ -50,4 +50,12 @@ class QuickInsertIntStatsTest {
         qi.insert(20);
         assertThat(qi.getMedian()).isEqualTo(10.5);
     }
+
+    @Test
+    void 중앙값_비어있는() {
+        QuickInsertIntStats qi = new QuickInsertIntStats();
+        Throwable thrown = catchThrowable(() -> qi.getMedian());
+        assertThat(thrown).isInstanceOf(IllegalStateException.class)
+            .hasMessageContaining("리스트가 비어있습니다.");
+    }
 }
