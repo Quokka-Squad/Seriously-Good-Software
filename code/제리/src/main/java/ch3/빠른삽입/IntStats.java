@@ -24,7 +24,6 @@ public class IntStats {
 		return average;
 	}
 
-	@SuppressWarnings("IntegerDivisionInFloatingPointContext")
 	public double getMedian() {
 		if (list.isEmpty()) {
 			return 0;
