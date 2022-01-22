@@ -33,4 +33,18 @@ class SpeedContainer2Test {
         assertEquals(5.0, c.getAmount());
         assertEquals(5.0, d.getAmount());
     }
+
+    @Test
+    void groupSize() {
+        SpeedContainer2 a = new SpeedContainer2();
+        SpeedContainer2 b = new SpeedContainer2();
+        SpeedContainer2 c = new SpeedContainer2();
+        SpeedContainer2 d = new SpeedContainer2();
+
+        a.connectTo(b);
+        b.connectTo(c);
+
+        assertEquals(3, a.groupSize());
+        assertEquals(1, d.groupSize());
+    }
 }
