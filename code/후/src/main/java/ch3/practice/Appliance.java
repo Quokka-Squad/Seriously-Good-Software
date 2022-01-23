@@ -15,23 +15,23 @@ public class Appliance {
     }
 
     public void plugInto(Grid grid) {
-        if (this.connectedGrid == null) {
-            this.connectedGrid = grid;
-            return;
-        }
-        if (this.connectedGrid != null && isOn) {
-            this.connectedGrid.setResidualPower(-powerConsumption);
+        if (this.connectedGrid != grid) {
+            off();
         }
         this.connectedGrid = grid;
     }
 
     public void on() {
-        this.isOn = true;
-        this.connectedGrid.setResidualPower(-powerConsumption);
+        if (!isOn) {
+            this.isOn = true;
+            this.connectedGrid.setResidualPower(-powerConsumption);
+        }
     }
 
     public void off() {
-        this.isOn = false;
-        this.connectedGrid.setResidualPower(powerConsumption);
+        if (isOn) {
+            this.isOn = false;
+            this.connectedGrid.setResidualPower(powerConsumption);
+        }
     }
 }
