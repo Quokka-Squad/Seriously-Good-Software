@@ -1,8 +1,8 @@
 package chap03;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class IntStats_FastFind {
     private long sum;
@@ -27,6 +27,9 @@ public class IntStats_FastFind {
     //리스트에 추가된 모든 정수의 중앙값.
     //짝수의 경우 가운데 2요소의 평균.
     public double getMedian() {
+        if (list.size() < 1) {
+            throw new NoSuchElementException("리스트에 데이터가 없습니다.");
+        }
         if (list.size() % 2 == 1) {
             return list.get(list.size() / 2);
         } else {

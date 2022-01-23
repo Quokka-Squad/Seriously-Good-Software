@@ -15,6 +15,8 @@ public class Main {
         System.out.println(grid.residualPower());
         radio.on();
         System.out.println(grid.residualPower());
+        radio.off();
+        System.out.println(grid.residualPower());
     }
 
 }
