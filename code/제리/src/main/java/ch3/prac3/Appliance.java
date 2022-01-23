@@ -7,6 +7,9 @@ public class Appliance {
 	private boolean isOn;
 
 	public Appliance(int requiredPower) {
+		if (requiredPower < 0) {
+			throw new IllegalArgumentException("음수의 전력 요구량은 존재할 수 없습니다.");
+		}
 		this.requiredPower = requiredPower;
 		this.isOn = false;
 	}

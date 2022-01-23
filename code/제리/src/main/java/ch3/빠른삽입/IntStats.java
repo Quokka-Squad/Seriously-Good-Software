@@ -8,25 +8,25 @@ public class IntStats {
 
 	// insert(), getAverage() -> O(1)
 	private final List<Integer> list;
-	private double average;
+	private double total;
 
 	public IntStats() {
 		list = new ArrayList<>();
-		average = 0;
+		total = 0;
 	}
 
 	public void insert(int n) {
-		average = (average * list.size() + n) / (list.size() + 1);
+		total += n;
 		list.add(n);
 	}
 
 	public double getAverage() {
-		return average;
+		return total / (double) list.size();
 	}
 
 	public double getMedian() {
 		if (list.isEmpty()) {
-			return 0;
+			throw new IllegalArgumentException("비어있는 리스트입니다.");
 		}
 		Collections.sort(list);
 		if (list.size() % 2 == 1) {
