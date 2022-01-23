@@ -7,6 +7,9 @@ public class Appliance {
     private Grid connectedGrid;
 
     public Appliance(int powerConsumption) {
+        if (powerConsumption < 0) {
+            throw new IllegalArgumentException("전자장치는 반드시 양수의 전력을 소비합니다.");
+        }
         this.powerConsumption = powerConsumption;
         this.isOn = false;
     }
