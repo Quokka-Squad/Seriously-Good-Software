@@ -18,7 +18,7 @@ public class Appliance {
 
     public void on() throws Exception {
         if (connectedGrid.getMaxEnergy() < energy) {
-            throw new Exception("전력 부족");
+            throw new IllegalArgumentException("전력 부족");
         }
         connectedGrid.useEnergy(energy);
         power = true;
