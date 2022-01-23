@@ -26,5 +26,6 @@ public class Appliance {
 
     public void off() {
         power = false;
+        connectedGrid.useEnergy(power * ( -1));
     }
 }
