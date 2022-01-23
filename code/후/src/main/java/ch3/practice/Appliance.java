@@ -3,32 +3,32 @@ package ch3.practice;
 public class Appliance {
 
     private int powerConsumption;
-    private boolean status;
-    private Grid grid;
+    private boolean isOn;
+    private Grid connectedGrid;
 
     public Appliance(int powerConsumption) {
         this.powerConsumption = powerConsumption;
-        this.status = false;
+        this.isOn = false;
     }
 
     public void plugInto(Grid grid) {
-        if (this.grid == null) {
-            this.grid = grid;
+        if (this.connectedGrid == null) {
+            this.connectedGrid = grid;
             return;
         }
-        if (this.grid != null && status) {
-            this.grid.setResidualPower(-powerConsumption);
+        if (this.connectedGrid != null && isOn) {
+            this.connectedGrid.setResidualPower(-powerConsumption);
         }
-        this.grid = grid;
+        this.connectedGrid = grid;
     }
 
     public void on() {
-        this.status = true;
-        this.grid.setResidualPower(-powerConsumption);
+        this.isOn = true;
+        this.connectedGrid.setResidualPower(-powerConsumption);
     }
 
     public void off() {
-        this.status = false;
-        this.grid.setResidualPower(powerConsumption);
+        this.isOn = false;
+        this.connectedGrid.setResidualPower(powerConsumption);
     }
 }
