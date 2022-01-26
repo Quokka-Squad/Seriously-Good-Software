@@ -6,7 +6,7 @@ package ch4.memory3;
  *  @version 1.0
  */
 public class UseCase {
-    public static void main(String[] agrs) {
+    public static void main(String[] args) {
         int a = Container.newContainer(),
             b = Container.newContainer(),
             c = Container.newContainer(),
