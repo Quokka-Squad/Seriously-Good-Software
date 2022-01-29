@@ -2,7 +2,7 @@ package ch4;
 
 public class UniqueList<E> {
 
-	Object[] data;
+	private final Object[] data;
 
 	public UniqueList(int capacity) {
 		data = new Object[capacity];
