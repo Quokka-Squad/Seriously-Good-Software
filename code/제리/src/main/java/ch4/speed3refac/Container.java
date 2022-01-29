@@ -9,10 +9,17 @@ package ch4.speed3refac;
  */
 public class Container {
 
-    private Container parent = new RootContainer();
+    private Container parent;
+
+    public Container(boolean dummy) {
+    }
+
+    public Container() {
+        parent = new RootContainer();
+    }
 
     private RootContainer findRootAndCompress() {
-        if (this.parent.parent == this.parent) {
+        if (this.parent == null || this.parent.parent == null) {
             return (RootContainer) this.parent;
         }
         parent = parent.findRootAndCompress();

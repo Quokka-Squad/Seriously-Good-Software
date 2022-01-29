@@ -6,7 +6,7 @@ public class RootContainer extends Container{
 	int size = 1;
 
 	public RootContainer() {
-		super();
+		super(false);
 	}
 
 }
