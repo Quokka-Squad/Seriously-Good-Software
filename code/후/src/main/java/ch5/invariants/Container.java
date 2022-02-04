@@ -80,8 +80,21 @@ public class Container {
 
     public void addWater(double amount) {
         double amountPerContainer = amount / group.size();
+        // 1. 사전 조건 검사
+        if (this.amount + amountPerContainer < 0) {
+            throw new IllegalArgumentException(
+                "Not enough water to match the addWater request."
+            );
+        }
+        // 2. 실제 작업 수행
         for (Container c : group) {
             c.amount += amountPerContainer;
         }
+        // 3. 불변 조건 검사
+        assert invariantsArePreservedByAddWater() : "addWater broke an invariant!";
+    }
+
+    private boolean invariantsArePreservedByAddWater() {
+        return isGroupNonNegative() && isGroupBalanced();
     }
 }
