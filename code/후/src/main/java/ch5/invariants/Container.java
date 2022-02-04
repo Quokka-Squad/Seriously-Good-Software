@@ -1,6 +1,7 @@
 package ch5.invariants;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Container {
@@ -18,6 +19,10 @@ public class Container {
     }
 
     public void connectTo(Container other) {
+        // 1. 사전 조건 검사
+        Objects.requireNonNull(other,
+            "Cannot connect to a null container.");
+        // 2. 실제 작업 수행
         if (group == other.group) {
             return;
         }
@@ -35,6 +40,42 @@ public class Container {
         for (Container c : group) {
             c.amount = newAmount;
         }
+        // 3. 불변 조건 검사
+        assert invariantsArePreservedByConnectTo(other) : "connectTo broke an invariant!";
+    }
+
+    private boolean invariantsArePreservedByConnectTo(Container other) {
+        return group == other.group &&
+            isGroupNonNegative() &&
+            isGroupBalanced() &&
+            isGroupConsistent();
+    }
+
+    private boolean isGroupNonNegative() { // Invariant I1
+        for (Container x : group) {
+            if (x.amount < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isGroupConsistent() { // Invariants I2, I3
+        for (Container x : group) {
+            if (x.group != group) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isGroupBalanced() { // Invariant I4
+        for (Container x : group) {
+            if (x.amount != amount) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void addWater(double amount) {
