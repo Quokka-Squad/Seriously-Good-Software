@@ -1,11 +1,11 @@
 package ch5.boundedset;
 
+import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class BoundedSet<T> {
 
-    protected final Queue<T> data;
+    protected final Deque<T> data;
     protected final int MAX_SIZE;
 
     public BoundedSet(int maxSize) {
