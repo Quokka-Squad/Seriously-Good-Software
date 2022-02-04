@@ -5,8 +5,8 @@ import java.util.Queue;
 
 public class BoundedSet<T> {
 
-    private final Queue<T> data;
-    private final int MAX_SIZE;
+    protected final Queue<T> data;
+    protected final int MAX_SIZE;
 
     public BoundedSet(int maxSize) {
         this.data = new LinkedList<>();
