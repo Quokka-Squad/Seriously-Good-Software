@@ -13,6 +13,11 @@ public class BoundedSet<T> {
         this.MAX_SIZE = maxSize;
     }
 
+    public BoundedSet(BoundedSet<T> other) {
+        data = new LinkedList<>(other.data);
+        MAX_SIZE = other.MAX_SIZE;
+    }
+
     public void add(T elem) {
         // 1. 사전 조건 : 인자는 null이 아님
         // 2. 패널티 : NPE
