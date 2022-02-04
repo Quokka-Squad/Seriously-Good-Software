@@ -95,6 +95,7 @@ public class Container {
         for (Container c: group) 
             c.amount += amountPerContainer;
 
+        // 사후 조건 검사
         assert postAddWater(oldTotal, amount) : "addWater failed its post-condition!";
     }
 
