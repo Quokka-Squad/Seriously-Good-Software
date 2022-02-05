@@ -1,4 +1,4 @@
-package ch5;
+package ch5.contracts;
 
 public class UseCase {
     public static void main(String[] args) {
