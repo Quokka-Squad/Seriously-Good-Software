@@ -1,6 +1,7 @@
 package ch5.practice;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class InterleaveLists {
@@ -17,6 +18,26 @@ public class InterleaveLists {
             interleave.add(a.get(i));
             interleave.add(b.get(i));
         }
+        assert interleaveCheckPost(a, b, interleave);
         return interleave;
+    }
+
+    private static boolean interleaveCheckPost(List a, List b, List result) {
+        if (result.size() != a.size() + b.size()) {
+            return false;
+        }
+        boolean odd = true;
+        Iterator ia = a.iterator();
+        Iterator ib = b.iterator();
+        for (Object elem : result) {
+            if (odd && elem != ia.next()) {
+                return false;
+            }
+            if (!odd && elem != ib.next()) {
+                return false;
+            }
+            odd = !odd;
+        }
+        return true;
     }
 }
