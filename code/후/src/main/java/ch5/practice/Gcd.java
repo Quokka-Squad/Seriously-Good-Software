@@ -5,6 +5,9 @@ import java.util.Random;
 public class Gcd {
 
     private static int greatestCommonDivisor(int u, int v) {
+        // 사후 조건 검사를 위한 데이터 저장
+        final int originalU = u, originalV = v;
+
         if (u == 0 || v == 0) {
             if (u == Integer.MIN_VALUE || v == Integer.MIN_VALUE) {
                 throw new ArithmeticException("overflow: gcd is 2^31");
@@ -42,7 +45,19 @@ public class Gcd {
             t = (v - u) / 2;
         } while (t != 0);
 
-        return -u * (1 << k);
+        // 사후 조건 검사
+        int gcd = -u * (1 << k);
+        assert isGcd(gcd, originalU, originalV) : "Wrong GCD!";
+        return gcd;
+    }
+
+    private static boolean isGcd(int gcd, int u, int v) {
+        if (u % gcd != 0 || v % gcd != 0)
+            return false;
+        for (int i=gcd+1; i<=u && i<=v; i++)
+            if (u % i == 0 && v % i == 0)
+                return false;
+        return true;
     }
 
     public static void main(String... args) {
