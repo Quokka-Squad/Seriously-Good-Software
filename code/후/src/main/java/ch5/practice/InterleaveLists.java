@@ -13,13 +13,13 @@ public class InterleaveLists {
         if (a.size() != b.size()) {
             throw new IllegalArgumentException();
         }
-        List<T> interleave = new ArrayList<>();
+        List<T> result = new ArrayList<>();
         for (int i = 0; i < a.size(); i++) {
-            interleave.add(a.get(i));
-            interleave.add(b.get(i));
+            result.add(a.get(i));
+            result.add(b.get(i));
         }
-        assert interleaveCheckPost(a, b, interleave);
-        return interleave;
+        assert interleaveCheckPost(a, b, result);
+        return result;
     }
 
     private static boolean interleaveCheckPost(List<?> a, List<?> b, List<?> result) {
