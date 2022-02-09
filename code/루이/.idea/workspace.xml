@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91c6ddf2-fcb8-4c9f-9c4c-978216ff6e63" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch5/contracts/Container.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch5/Container.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch5/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch5/contracts/UseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ch5/Container.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ch5/UseCase.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +48,12 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/ch5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="optimize.imports.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -179,7 +174,9 @@
       <workItem from="1643974180523" duration="1341000" />
       <workItem from="1643979363690" duration="3961000" />
       <workItem from="1644027025564" duration="13030000" />
-      <workItem from="1644047798622" duration="4181000" />
+      <workItem from="1644047798622" duration="4864000" />
+      <workItem from="1644233775198" duration="1046000" />
+      <workItem from="1644443917878" duration="83000" />
     </task>
     <servers />
   </component>
@@ -197,6 +194,17 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ch5/contracts/Container.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
