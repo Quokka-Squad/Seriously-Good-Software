@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Ch6Test {
+public class UnitTests {
+    private Con
 
     @Test
     void name() {
