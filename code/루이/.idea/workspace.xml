@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15fcf78f-c194-4b39-80d6-055ffa7e2ce4" name="Changes" comment="" />
+    <list default="true" id="15fcf78f-c194-4b39-80d6-055ffa7e2ce4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../docs/루이/ch6.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../docs/루이/ch6.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +48,7 @@
       <recent name="E:\intellij-workspace\루이\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UseCase">
+  <component name="RunManager" selected="JUnit.UnitTests.testNewContainerIsEmpty">
     <configuration name="UseCase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch1.UseCase" />
       <module name="루이.main" />
@@ -76,10 +78,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UnitTests.testNewContainerIsEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="루이.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ch6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ch6" />
+      <option name="MAIN_CLASS_NAME" value="ch6.UnitTests" />
+      <option name="METHOD_NAME" value="testNewContainerIsEmpty" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UseCase" />
+        <item itemvalue="JUnit.UnitTests.testNewContainerIsEmpty" />
         <item itemvalue="JUnit.UnitTests.name" />
+        <item itemvalue="Application.UseCase" />
       </list>
     </recent_temporary>
   </component>
@@ -93,7 +112,7 @@
       <updated>1644448154494</updated>
       <workItem from="1644448156847" duration="767000" />
       <workItem from="1644449336865" duration="304000" />
-      <workItem from="1644449750009" duration="1088000" />
+      <workItem from="1644449750009" duration="5160000" />
     </task>
     <servers />
   </component>
