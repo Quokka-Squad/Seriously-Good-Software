@@ -59,10 +59,51 @@
 - assertEquals(String message, Object expected, Object actual) : `expected`와 `actual` 둘 다 null, 서로 같으면 성공.
 - assertEquals(String message, double expected, double actual, double delta) : `expected`와 `actual`이 `delta`만큼 오차 안에 있으면 성공. `delta`는 비교할 때 허용되는 오차. `부동 소수점 수`는 직접 비교하면 안 되고 오차를 고려해 비교해야함.
 
+### 테스트 초기화
+@Before
+- 매번 테스트를 실행하기 전에 실행됨
+- 각 테스트를 초기화한다.
+
+@BeforeClass
+- 테스트 시작시 한 번 호출
+
+@After
+- 매번 테스트 완료시 호출
+
+@AfterClass
+- 테스트 완료시 한 번 호출
+
+### Hamcrest 매처를 이용한 가독성 높은 어서션
+
+```java
+assertEquals(theBiscuit, myBiscuit);
+
+// 아래 세 줄의 코드는 위와 같다.
+assertThat(theBiscuit, equalTo(myBiscuit));
+assertThat(theBiscuit, is(equalTo(myBiscuit)));
+assertThat(theBiscuit, is(myBiscuit));
+```
+- `is` 나 `equalTo`를 사용해 가독성 있게 바꿀 수 있다.
+
+`Matcher` 에 다양한 method가 있다.
+
+### addWater 테스트
+[도메인 모델이란](https://javacan.tistory.com/entry/what-is-a-domain-model)
+
+
+
+
 
 
 ### 돌발 퀴즈 1
 Q) 메서드 계약의 어느 부분이 메서드 테스트와 관련 있는가?<br>
--> 계약..???????
+-> 
 
+### 돌발 퀴즈 2
+Q) 날짜를 표현하는 데이터 타입에는 어떠한 특성이 있을까?<br>
+-> 
+
+### 돌발 퀴즈 2
+Q) 독립적인 세 특성이 존재하고 각 특성에 따른 블록 개수가 n1, n2, n3이라면 전체 조합 커버리지를 달성하는데 몇 개의 테스트가 필요한가? 개별 선택 커버리지와 기반 선택 커버리지에는 몇 개의 테스트가 필요한가?<br>
+-> 
 
