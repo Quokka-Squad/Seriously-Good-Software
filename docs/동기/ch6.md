@@ -40,6 +40,27 @@
 
 안전성이 중요한 코드에서는 `불변 조건 검사`를 이용해 상태를 확인할 수 있다.
 
+### JUnit
+자바의 표준 단위 테스트 프레임워크<br>
+<br>
+
+- 테스트에서 예외를 던진다면
+    - `@Test`의 expected 속성에 예상되는 예외 클래스를 지정해 JUnit에 알린다.
+
+![IMG_BF59E3E8773C-1](https://user-images.githubusercontent.com/73376468/153616672-9097f367-3f3b-4de1-8301-5769913380cc.jpeg)
+
+- 테스트 메서드는 값을 리턴하지 않는다.
+- JUnit의 assertion
+    - 연산 결과로 기대되는 값과 실제 얻은 값을 비교하기 위해 프레임워크에서 제공하는 정적 메서드
+
+### JUnit Method
+- assertTure : 조건이 참이면 테스트 성공.
+- assertFalse : 조건이 거짓이면 성공.
+- assertEquals(String message, Object expected, Object actual) : `expected`와 `actual` 둘 다 null, 서로 같으면 성공.
+- assertEquals(String message, double expected, double actual, double delta) : `expected`와 `actual`이 `delta`만큼 오차 안에 있으면 성공. `delta`는 비교할 때 허용되는 오차. `부동 소수점 수`는 직접 비교하면 안 되고 오차를 고려해 비교해야함.
+
+
+
 ### 돌발 퀴즈 1
 Q) 메서드 계약의 어느 부분이 메서드 테스트와 관련 있는가?<br>
 -> 계약..???????
