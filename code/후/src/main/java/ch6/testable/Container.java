@@ -17,9 +17,9 @@ public class Container {
         return amount;
     }
 
-    public void connectTo(Container other) {
+    public boolean connectTo(Container other) {
         if (group == other.group) {
-            return;
+            return false;
         }
 
         int size1 = group.size(),
@@ -35,6 +35,7 @@ public class Container {
         for (Container c : group) {
             c.amount = newAmount;
         }
+        return true;
     }
 
     public void addWater(double amount) {
