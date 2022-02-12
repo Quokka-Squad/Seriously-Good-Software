@@ -1,6 +1,5 @@
 package ch6.testable;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class Container {
@@ -8,8 +7,10 @@ public class Container {
     private Set<Container> group;
     private double amount;
 
-    public Container() {
-        group = new HashSet<>();
+    public Container(Class<? extends Set<Container>> setType)
+        throws ReflectiveOperationException {
+        group = setType.getDeclaredConstructor()
+            .newInstance();
         group.add(this);
     }
 
