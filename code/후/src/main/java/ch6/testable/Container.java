@@ -17,8 +17,12 @@ public class Container {
         return amount;
     }
 
+    public boolean isConnectedTo(Container other) {
+        return group == other.group;
+    }
+
     public boolean connectTo(Container other) {
-        if (group == other.group) {
+        if (isConnectedTo(other)) {
             return false;
         }
 
