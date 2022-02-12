@@ -38,10 +38,11 @@ public class Container {
         return true;
     }
 
-    public void addWater(double amount) {
+    public double addWater(double amount) {
         double amountPerContainer = amount / group.size();
         for (Container c : group) {
             c.amount += amountPerContainer;
         }
+        return this.amount;
     }
 }
