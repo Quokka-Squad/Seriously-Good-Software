@@ -1,5 +1,6 @@
 package ch6.boundedset;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,5 +31,9 @@ public class BoundedSet<T> {
 
     public boolean contains(T elem) {
         return data.contains(elem);
+    }
+
+    public List<T> content() {
+        return Collections.unmodifiableList(data);
     }
 }
