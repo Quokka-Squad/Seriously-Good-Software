@@ -1,8 +1,6 @@
 package ch6;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Objects;
+import java.util.*;
 
 public class BoundedSet<T> {
     private LinkedList<T> data = new LinkedList<>();
@@ -17,17 +15,27 @@ public class BoundedSet<T> {
         this.capacity = other.capacity;
     }
 
-    public void add(T element) {
+    public T add(T element) {
         Objects.requireNonNull(element);
         data.remove(element);
+        T removed = null;
         if (data.size() == capacity) {
-            data.removeFirst();
+            removed = data.removeFirst();
         }
         data.add(element);
+        return removed;
     }
 
     public boolean contains(T element) {
         return data.contains(element);
+    }
+
+    public List<T> contentV3() {
+        return Collections.unmodifiableList(data);
+    }
+
+    public Iterator<T> contentV4() {
+        return Collections.unmodifiableList(data).iterator();
     }
 
     @Override
@@ -44,7 +52,7 @@ public class BoundedSet<T> {
     }
 
     public static void main(String[] args) {
-        BoundedSet<Integer> set = new BoundedSet<Integer>(10);
+        BoundedSet<Integer> set = new BoundedSet<>(10);
         set.add(2);
         set.add(1);
         set.add(3);

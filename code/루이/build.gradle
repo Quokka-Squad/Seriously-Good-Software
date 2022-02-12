@@ -11,7 +11,44 @@ repositories {
 
 jacoco {
     toolVersion = "0.8.5"
+    reportsDir = file("${buildDir}/customJacocoReportDir")
 }
+
+jacocoTestReport {
+    reports {
+        csv.enabled false
+        xml.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+//jacocoTestCoverageVerification {
+//    violationRules {
+//        rule {
+//            enabled = true
+//            element = 'CLASS'
+//
+//            limit {
+//                counter = 'LINE'
+//                value = 'COVEREDRATIO'
+//                minimum = 0.60
+//            }
+//
+//            excludes = []
+//        }
+//    }
+//}
+//
+//tasks {
+//    jacocoTestCoverageVerification {
+//        violationRules {
+//            rule { limit { minimum = BigDecimal.valueOf(0.2) } }
+//        }
+//    }
+//    check {
+//        dependsOn(jacocoTestCoverageVerification)
+//    }
+//}
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
@@ -21,43 +58,7 @@ dependencies {
 }
 
 test{
-    finalizedBy 'jacocoTestReport'
+    useJUnitPlatform()
 }
 
-jacocoTestReport {
-    reports {
-        html.enabled true
-        csv.enabled true
-        xml.enabled false
-    }
-    finalizedBy 'jacocoTestCoverageVerification'
-}
-
-jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            enabled = true
-            element = 'CLASS'
-
-            limit {
-                counter = 'LINE'
-                value = 'COVEREDRATIO'
-                minimum = 0.60
-            }
-
-            excludes = []
-        }
-    }
-}
-
-tasks {
-    jacocoTestCoverageVerification {
-        violationRules {
-            rule { limit { minimum = BigDecimal.valueOf(0.2) } }
-        }
-    }
-    check {
-        dependsOn(jacocoTestCoverageVerification)
-    }
-}
 
