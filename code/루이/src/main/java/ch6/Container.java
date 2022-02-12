@@ -25,7 +25,7 @@ public class Container {
     }
 
     public boolean connectTo(Container other) {
-        if (group == other.group) {
+        if (isConnectedTo(other)) {
             return false;
         }
         int size1 = group.size();
@@ -39,5 +39,12 @@ public class Container {
         other.group.forEach(c -> c.group = group);
         group.forEach(c -> c.amount = newAmount);
         return true;
+    }
+
+    public boolean isConnectedTo(Container other) {
+        if (group == other.group) {
+            return true;
+        }
+        return false;
     }
 }
