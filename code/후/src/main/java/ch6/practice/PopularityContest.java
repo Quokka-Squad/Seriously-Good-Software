@@ -2,9 +2,11 @@ package ch6.practice;
 
 public interface PopularityContest<T> {
 
-    void addContestant(T contestant);
+    boolean addContestant(T contestant);
 
-    void voteFor(T contestant);
+    int voteFor(T contestant);
+
+    int getVotes(T contestant);
 
     T getMostVoted();
 }
