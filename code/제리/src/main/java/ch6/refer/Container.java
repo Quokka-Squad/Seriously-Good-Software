@@ -1,5 +1,6 @@
 package ch6.refer;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Container {
@@ -7,12 +8,9 @@ public class Container {
 	private Set<Container> group;
 	private double amount;
 
-	/* Creates an empty container using the specified set implementation
-	   to represent groups of connected containers. */
-	public Container(Class<? extends Set<Container>> setType)
-		throws ReflectiveOperationException {
-		group = setType.getDeclaredConstructor()
-			.newInstance();
+	/* Creates an empty container. */
+	public Container() {
+		group = new HashSet<>();
 		group.add(this);
 	}
 
@@ -20,10 +18,10 @@ public class Container {
 	public double getAmount() { return amount; }
 
 	/* Connects this container with other. */
-	public boolean connectTo(Container other) {
+	public void connectTo(Container other) {
 
 		// If they are already connected, do nothing
-		if (group==other.group) return false;
+		if (group==other.group) return;
 
 		int size1 = group.size(),
 			size2 = other.group.size();
@@ -37,18 +35,11 @@ public class Container {
 		for (Container c: other.group) c.group = group;
 		// Update amount of all newly connected containers
 		for (Container c: group) c.amount = newAmount;
-		return true;
 	}
 
-	/* Adds water to this container and returns the updated amount. */
-	public double addWater(double amount) {
+	/* Adds water to this container. */
+	public void addWater(double amount) {
 		double amountPerContainer = amount / group.size();
 		for (Container c: group) c.amount += amountPerContainer;
-		return this.amount;
-	}
-
-	/* Checks whether this container is connected with another. */
-	public boolean isConnectedTo(Container other) {
-		return group == other.group;
 	}
 }
