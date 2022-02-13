@@ -18,6 +18,7 @@ public class BoundedSet<T> {
 	}
 
 	public T add(T elem) {
+
 		if (Objects.isNull(elem)) {
 			throw new NullPointerException();
 		}
