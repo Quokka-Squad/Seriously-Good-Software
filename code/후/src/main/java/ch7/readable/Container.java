@@ -20,11 +20,19 @@ public class Container {
     private Set<Container> group;
     private double amount;
 
+    /**
+     * 빈 수조를 만든다.
+     */
     public Container() {
         group = new HashSet<>();
         group.add(this);
     }
 
+    /**
+     * 이 수조에 현재 담겨 있는 물의 양을 리턴한다.
+     *
+     * @return 이 수조에 현재 담겨 있는 물의 양을 리턴한다.
+     */
     public double getAmount() {
         return amount;
     }
