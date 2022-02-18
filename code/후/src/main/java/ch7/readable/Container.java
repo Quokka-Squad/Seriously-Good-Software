@@ -37,24 +37,61 @@ public class Container {
         return amount;
     }
 
+    /**
+     * 이 수조를 다른 수조에 연결한다.
+     *
+     * @param other 이 수조에 연결할 수조
+     */
     public void connectTo(Container other) {
-        if (group == other.group) {
+        if (this.isConnectedTo(other)) {
             return;
         }
 
-        int size1 = group.size(),
-            size2 = other.group.size();
-        double total1 = amount * size1,
-            total2 = amount * size2,
-            newAmount = (total1 + total2) / (size1 + size2);
+        double newAmount = (groupAmount() + other.groupAmount()) /
+            (groupSize() + other.groupSize());
+        mergeGroupWith(other.group);
+        setAllAmountsTo(newAmount);
+    }
 
-        group.addAll(other.group);
-        for (Container c : other.group) {
-            c.group = group;
+    private void mergeGroupWith(Set<Container> otherGroup) {
+        group.addAll(otherGroup);
+        for (Container x : otherGroup) {
+            x.group = group;
         }
-        for (Container c : group) {
-            c.amount = newAmount;
+    }
+
+    private void setAllAmountsTo(double amount) {
+        for (Container x : group) {
+            x.amount = amount;
         }
+    }
+
+    /**
+     * 이 수조가 주어진 수조와 연결됐는지 확인한다.
+     *
+     * @param other 연결 여부를 검사할 수조
+     * @return 이 수조가 <code>other</code>에 연결됐다면 <code>true</code>
+     */
+    public boolean isConnectedTo(Container other) {
+        return group == other.group;
+    }
+
+    /**
+     * 이 수조의 그룹에 포함된 수조의 개수를 리턴
+     *
+     * @return 그룹의 크기
+     */
+    public int groupSize() {
+        return group.size();
+    }
+
+    /**
+     * 이 수조의 그룹에 담긴 전체 물의 양을 리턴
+     *
+     * @return 이 수조의 그룹에 담긴 전체 물의 양
+     */
+    public double groupAmount() {
+        return amount * group.size();
     }
 
     public void addWater(double amount) {
