@@ -3,23 +3,18 @@ package ch7.matrix;
 public class Matrix {
 
     public static void f(double[][] a) {
-        int i = 0, j = 0;
-        while (i < a.length) {
+        for (int i = 0; i < a.length; i++) {
             if (a[i].length != a.length) {
                 throw new IllegalArgumentException();
             }
-            i++;
         }
-        i = 0;
-        while (i < a.length) {
-            j = 0;
-            while (j < 1) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < i; j++) {
                 double temp = a[i][j];
                 a[i][j] = a[j][i];
                 a[j][i] = temp;
                 j++;
             }
         }
-        i++
     }
 }
