@@ -2,23 +2,23 @@ package ch7.matrix;
 
 public class Matrix {
 
-    public static void f(double[][] a) {
-        if (!isSquare(a)) {
+    public static void f(double[][] matrix) {
+        if (!isSquare(matrix)) {
             throw new IllegalArgumentException("주어진 행렬이 정사각형이 아닙니다.");
         }
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < i; j++) {
-                double temp = a[i][j];
-                a[i][j] = a[j][i];
-                a[j][i] = temp;
+                double temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
                 j++;
             }
         }
     }
 
-    public static boolean isSquare(double[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            if (a[i].length != a.length) {
+    public static boolean isSquare(double[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i].length != matrix.length) {
                 return false;
             }
         }
