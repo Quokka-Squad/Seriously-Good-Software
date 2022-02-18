@@ -94,6 +94,13 @@ public class Container {
         return amount * group.size();
     }
 
+    /**
+     * 이 수조에 물을 더한다.
+     * <code>amount</code>가 음수이면 물을 뺀다.
+     * 그 경우, 요청을 만족시키기에 충분한 물이 그룹에 담겨 있어야 한다.
+     *
+     * @param amount 더할 물의 양
+     */
     public void addWater(double amount) {
         double amountPerContainer = amount / group.size();
         for (Container c : group) {
