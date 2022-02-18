@@ -2,7 +2,7 @@ package ch7.matrix;
 
 public class Matrix {
 
-    public static void f(double[][] matrix) {
+    public static void transpose(double[][] matrix) {
         if (!isSquare(matrix)) {
             throw new IllegalArgumentException("주어진 행렬이 정사각형이 아닙니다.");
         }
