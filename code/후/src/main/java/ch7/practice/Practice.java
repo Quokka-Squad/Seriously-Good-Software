@@ -17,6 +17,8 @@ public class Practice {
             .count();
     }
 
+    private enum Status {FRESH, ENQUEUED, PROCESSED}
+
     /**
      * BFS를 코드로 구현해 사용
      *
@@ -25,26 +27,22 @@ public class Practice {
      * @param sourceVertex   시작 정점
      */
     public static void breadFirst(byte[][] adjacentMatrix, int vertexCount,
-        int sourceVertex) {  // 인접 행렬과 정점의 수를 전달
-        byte[] b = new byte[vertexCount];    // 각 정점의 상태를 저장할 플래그 컨테이너
-        Arrays.fill(b, (byte) -1);   // 상태 초기화
-       /*       code   status
-                -1  =  ready
-                 0  =  waiting
-                 1  =  processed       */
+        int sourceVertex) {
+        Status[] status = new Status[vertexCount];
+        Arrays.fill(status, Status.FRESH);
 
-        Stack<Integer> st = new Stack<>();     // 운영 스택
-        st.push(sourceVertex);                                     // 소스 할당
-        while (!st.isEmpty()) {
-            b[st.peek()] = (byte) 0;                      // 대기 상태 할당
-            System.out.println(st.peek());
-            int pop = st.peek();
-            b[pop] = (byte) 1;               // 처리된 상태로 썰정
-            st.pop();                  // 큐의 헤드 제거
+        Stack<Integer> stack = new Stack<>();
+        stack.push(sourceVertex);
+
+        while (!stack.isEmpty()) {
+            int currentVertex = stack.pop();
+            System.out.println(currentVertex);
+            status[currentVertex] = Status.PROCESSED;
+
             for (int i = 0; i < vertexCount; i++) {
-                if (adjacentMatrix[pop][i] != 0 && b[i] != (byte) 0 && b[i] != (byte) 1) {
-                    st.push(i);
-                    b[i] = (byte) 0;                        // 대기 상태 할당
+                if (adjacentMatrix[currentVertex][i] != 0 && status[i] == Status.FRESH) {
+                    stack.push(i);
+                    status[i] = Status.ENQUEUED;
                 }
             }
         }
