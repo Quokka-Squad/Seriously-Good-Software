@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ch1"},{"l":"ch3"},{"l":"ch3.speed1"},{"l":"ch3.speed2"},{"l":"ch3.speed3"},{"l":"ch4"},{"l":"ch4.memory1"},{"l":"ch4.memory2"},{"l":"ch4.memory3"},{"l":"ch4.memory4"},{"l":"ch5"},{"l":"ch5.contracts"},{"l":"ch5.invariants"},{"l":"ch6"},{"l":"ch7"}]
