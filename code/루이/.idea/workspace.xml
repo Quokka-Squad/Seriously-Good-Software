@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15fcf78f-c194-4b39-80d6-055ffa7e2ce4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/ch6/BoundedSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/ch6/BoundedSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/ch6/UnitTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/ch6/UnitTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch6/BoundedSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch6/BoundedSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docs/루이/ch6.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../docs/루이/ch6.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +204,9 @@
       <workItem from="1644620216328" duration="4680000" />
       <workItem from="1644625730557" duration="364000" />
       <workItem from="1644634508638" duration="19177000" />
+      <workItem from="1645188414870" duration="590000" />
+      <workItem from="1645195394613" duration="599000" />
+      <workItem from="1645225239534" duration="1187000" />
     </task>
     <servers />
   </component>
