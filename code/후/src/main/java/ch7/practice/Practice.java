@@ -24,7 +24,7 @@ public class Practice {
      * @param vertexCount    정점의 수
      * @param sourceVertex   시작 정점
      */
-    public static void bfsImplement(byte[][] adjacentMatrix, int vertexCount,
+    public static void breadFirst(byte[][] adjacentMatrix, int vertexCount,
         int sourceVertex) {  // 인접 행렬과 정점의 수를 전달
         byte[] b = new byte[vertexCount];    // 각 정점의 상태를 저장할 플래그 컨테이너
         Arrays.fill(b, (byte) -1);   // 상태 초기화
