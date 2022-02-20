@@ -24,7 +24,7 @@ public class Matrix {
 
     /** Checks whether a given matrix is square-shaped
      *
-     * @param matrix  a matrix
+     * @param matrix a matrix
      * @return {@code true} if the given matrix is square
      */
     public static boolean isNotSquare(double[][] matrix) {
